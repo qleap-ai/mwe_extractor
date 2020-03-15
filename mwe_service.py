@@ -79,6 +79,9 @@ def run():
     global_mwe = set(global_mwe_obj['mwes'])
     to = datetime.now(tz=None).replace(tzinfo=timezone.utc).timestamp()
     my_mwe = extract(fr, to)
+    if len(my_mwe) == 0:
+        print("no new mwes found. try later.")
+        return
     my_new_mwe = my_mwe - global_mwe
     store_in_bucket(my_new_mwe, to, fr, 'incr')
     global_mwe.update(my_new_mwe)

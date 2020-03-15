@@ -98,7 +98,8 @@ def build_mwe_set(articles):
         for word in text.split(" "):
             if "_" in word:
                 mwe_set.add(word.lower())
-
+    if len(mwe_set) == 0:
+        return set()
     mwe_set.remove("_")
     return mwe_set
 
