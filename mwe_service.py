@@ -1,6 +1,4 @@
 from firebase_admin import firestore
-from gensim.models import Phrases
-from gensim.models.phrases import Phraser
 import json
 import mwe_extractor
 from datetime import datetime, timezone
